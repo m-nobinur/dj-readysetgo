@@ -149,12 +149,8 @@ def main():
     print("\nNext steps:")
 
     print("  1. Enter your virtual environment:")
-    if "{{ cookiecutter.use_uv }}" == "y":
-        print("       source .venv/bin/activate  # On Unix/Linux/Mac")
-        print("       .venv\\Scripts\\activate     # On Windows")
-    else:
-        print("       source .venv/bin/activate  # On Unix/Linux/Mac")
-        print("       .venv\\Scripts\\activate     # On Windows")
+    print("       source .venv/bin/activate  # On Unix/Linux/Mac")
+
     print("  2. Create a superuser: python manage.py createsuperuser")
     print("  3. Run the development server: python manage.py runserver")
     print("\nEnjoy building your project!")
