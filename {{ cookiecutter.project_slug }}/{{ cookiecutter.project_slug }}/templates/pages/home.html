@@ -1,0 +1,166 @@
+{% raw %}{% extends "layouts/base_layout.html" %}
+
+{% load static %}
+
+{% block title %}
+  {{ SITE_TITLE }} - Home
+{% endblock title %}
+{% block page %}
+  {% include "components/nav.html" %}
+  <div class="bg-base-100 min-h-screen">
+    <!-- Hero Section -->
+    <div class="hero bg-base-200 py-16">
+      <div class="hero-content text-center">
+        <div class="max-w-3xl">
+          {% lucide "app-window" size=40 class="mr-4" %}
+          <h1 class="text-5xl font-bold">{{ cookiecutter.project_name }}</h1>
+          <p class="py-6 text-lg">
+            A fully-featured Django starter template with all batteries included. This template provides a robust foundation for modern web development, featuring pre-configured authentication, REST API support, admin enhancements, and more.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-2 mb-4">
+            <a href="https://github.com/cookiecutter/cookiecutter-django"
+               target="_blank"
+               class="btn btn-primary">View on GitHub</a>
+            <a href="https://cookiecutter-django.readthedocs.io/en/latest/"
+               target="_blank"
+               class="btn btn-outline">Documentation</a>
+          </div>
+          <div class="badge badge-outline">Apache Software License 2.0</div>
+        </div>
+      </div>
+    </div>
+    <!-- Features Section -->
+    <div class="py-12 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Authentication -->
+          <div class="card bg-base-200 shadow-lg">
+            <div class="card-body">
+              <h3 class="card-title">Authentication</h3>
+              <p>Complete user authentication flow with social login options, email verification, and password reset.</p>
+              <div class="card-actions justify-end">
+                <a href="{% url 'account_signup' %}" class="btn btn-sm">Get Started</a>
+              </div>
+            </div>
+          </div>
+          <!-- API -->
+          <div class="card bg-base-200 shadow-lg">
+            <div class="card-body">
+              <h3 class="card-title">REST API</h3>
+              <p>Built-in REST API with Django REST framework, JWT authentication, and API documentation.</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-sm">API Docs</button>
+              </div>
+            </div>
+          </div>
+          <!-- Docker Support -->
+          <div class="card bg-base-200 shadow-lg">
+            <div class="card-body">
+              <h3 class="card-title">Docker Support</h3>
+              <p>Development and production Docker configurations, making deployment simple and consistent.</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-sm">Learn More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Commands Section -->
+    <div class="py-12 bg-base-200 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-6">Basic Commands</h2>
+        <div class="collapse collapse-arrow bg-base-100 mb-4">
+          <input type="radio" name="commands-accordion" checked="checked" />
+          <div class="collapse-title text-xl font-medium">Setting Up Users</div>
+          <div class="collapse-content">
+            <p class="mb-3">
+              To create a <strong>normal user account</strong>, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+            </p>
+            <p class="mb-3">
+              To create a <strong>superuser account</strong>, use this command:
+            </p>
+            <div class="mockup-code">
+              <pre data-prefix="$"><code>python manage.py createsuperuser</code></pre>
+            </div>
+            <p class="mt-3">
+              For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+            </p>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-100 mb-4">
+          <input type="radio" name="commands-accordion" />
+          <div class="collapse-title text-xl font-medium">Test Coverage</div>
+          <div class="collapse-content">
+            <p class="mb-3">To run the tests, check your test coverage, and generate an HTML coverage report:</p>
+            <div class="mockup-code">
+              <pre data-prefix="$"><code>coverage run -m pytest</code></pre>
+              <pre data-prefix="$"><code>coverage html</code></pre>
+              <pre data-prefix="$"><code>open htmlcov/index.html</code></pre>
+            </div>
+            <p class="mt-3">Running tests with pytest:</p>
+            <div class="mockup-code">
+              <pre data-prefix="$"><code>pytest</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-100 mb-4">
+          <input type="radio" name="commands-accordion" />
+          <div class="collapse-title text-xl font-medium">Celery</div>
+          <div class="collapse-content">
+            <p class="mb-3">This app comes with Celery. To run a celery worker:</p>
+            <div class="mockup-code">
+              <pre data-prefix="$"><code>cd {{ cookiecutter.project_slug }}</code></pre>
+              <pre data-prefix="$"><code>celery -A config.celery_app worker -l info</code></pre>
+            </div>
+            <p class="mt-3">To run periodic tasks, you'll need to start the celery beat scheduler service:</p>
+            <div class="mockup-code">
+              <pre data-prefix="$"><code>cd {{ cookiecutter.project_slug }}</code></pre>
+              <pre data-prefix="$"><code>celery -A config.celery_app beat</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-100">
+          <input type="radio" name="commands-accordion" />
+          <div class="collapse-title text-xl font-medium">Email Server</div>
+          <div class="collapse-content">
+            <p class="mb-3">
+              In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use <a href="https://github.com/axllent/mailpit"
+    class="link link-primary"
+    target="_blank">Mailpit</a> when generating the project a local SMTP server with a web interface will be available.
+            </p>
+            <p class="mb-3">1. Download the latest Mailpit release for your OS.</p>
+            <p class="mb-3">2. Copy the binary file to the project root.</p>
+            <p class="mb-3">
+              3. Make it executable: <code>chmod +x mailpit</code>
+            </p>
+            <p class="mb-3">
+              4. Spin up another terminal window and start it there: <code>./mailpit</code>
+            </p>
+            <p class="mb-3">
+              5. Check out <a href="https://127.0.0.1:8025/"
+    class="link link-primary"
+    target="_blank">http://127.0.0.1:8025/</a> to see how it goes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CTA Section -->
+    <div class="py-16 text-center">
+      <div class="max-w-2xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+        <p class="mb-6">Start building your next Django project with a solid foundation.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-2">
+          <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up Now</a>
+          <a href="https://github.com/cookiecutter/cookiecutter-django"
+             target="_blank"
+             class="btn btn-outline">Fork on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include "components/footer.html" %}
+{% endblock page %}
+{%- endraw %}

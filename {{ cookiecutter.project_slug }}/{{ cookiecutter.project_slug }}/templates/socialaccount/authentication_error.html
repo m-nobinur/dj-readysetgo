@@ -1,0 +1,21 @@
+{% raw %}{% extends "layouts/base_layout.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block title %}
+  {% translate "Third-Party Login Failure" %}
+{% endblock title %}
+{% block page %}
+  <div class="flex justify-center my-32 lg:pb-32">
+    <div class="page text-center">
+      <h2 class="mb-4 text-3xl text-center font-semibold text-gray-700 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+        {% translate "Third-Party Login Failure" %}
+      </h2>
+      <p>
+        {% blocktranslate %}An error occurred while attempting to login via your third-party account.{% endblocktranslate %}
+      </p>
+    </div>
+  </div>
+{% endblock page %}
+{%- endraw %}

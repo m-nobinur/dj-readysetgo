@@ -1,0 +1,23 @@
+{% raw %}{% if help_text_inline and not error_text_inline %}
+  {% if field.help_text %}
+    <label class="label">
+      <span class="label-text-alt">{{ field.help_text|safe }}</span>
+    </label>
+  {% endif %}
+{% endif %}
+{% if field.errors %}
+  <label class="label">
+    {% for error in field.errors %}
+      <span id="error_{{ forloop.counter }}_{{ field.auto_id }}"
+            class="label-text-alt text-error">{{ error }}</span>
+    {% endfor %}
+  </label>
+{% endif %}
+{% if not help_text_inline %}
+  {% if field.help_text %}
+    <label class="label">
+      <span class="label-text-alt">{{ field.help_text|safe }}</span>
+    </label>
+  {% endif %}
+{% endif %}
+{%- endraw %}

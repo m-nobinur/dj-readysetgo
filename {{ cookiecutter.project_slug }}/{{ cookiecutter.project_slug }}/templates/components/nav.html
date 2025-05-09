@@ -1,0 +1,91 @@
+{% raw %}{% load static %}
+
+<div class="navbar bg-base-200">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="h-5 w-5"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      </div>
+      <ul tabindex="0"
+          class="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52">
+        <li>
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+          <a>Documentation</a>
+          <ul class="p-2">
+            <li>
+              <a href="https://cookiecutter-django.readthedocs.io/en/latest/"
+                 target="_blank">Read the Docs</a>
+            </li>
+            <li>
+              <a href="https://github.com/cookiecutter/cookiecutter-django"
+                 target="_blank">GitHub</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="{% url 'admin:index' %}">Admin</a>
+        </li>
+      </ul>
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-ghost text-xl">{{ cookiecutter.project_name }}</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li>
+        <a href="{% url 'home' %}">Home</a>
+      </li>
+      <li>
+        <details>
+          <summary>Documentation</summary>
+          <ul class="p-2 bg-base-100 z-50">
+            <li>
+              <a href="https://cookiecutter-django.readthedocs.io/en/latest/"
+                 target="_blank">Read the Docs</a>
+            </li>
+            <li>
+              <a href="https://github.com/cookiecutter/cookiecutter-django"
+                 target="_blank">GitHub</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <a href="{% url 'admin:index' %}">Admin</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-end">
+    {% if request.user.is_authenticated %}
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+          <div class="avatar placeholder">
+            <div class="bg-neutral text-neutral-content rounded-full w-10">
+              <span>{{ request.user.username|slice:":1"|upper }}</span>
+            </div>
+          </div>
+        </div>
+        <ul tabindex="0"
+            class="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52">
+          <li>
+            <a href="{% url 'users:detail' request.user.username %}">Profile</a>
+          </li>
+          <li>
+            <a href="{% url 'account_logout' %}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    {% else %}
+      <a href="{% url 'account_login' %}" class="btn btn-primary btn-sm">Login</a>
+      <a href="{% url 'account_signup' %}" class="btn btn-ghost btn-sm ml-2">Sign Up</a>
+    {% endif %}
+  </div>
+</div>
+{%- endraw %}

@@ -1,0 +1,26 @@
+{% raw %}{% load static i18n %}
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    {% include "includes/meta.html" %}
+    {% include "includes/stylesheets.html" %}
+    {% block extra_head %}
+    {% endblock extra_head %}
+    {% block extra_css %}
+    {% endblock extra_css %}
+    <title>
+      {% block title %}
+      {% endblock title %}
+    </title>
+  </head>
+  <body class="{% block bodyclass %}{% endblock bodyclass %}">
+    {% block content %}
+    {% endblock content %}
+    {% include "includes/scripts.html" %}
+    {% block extra_js %}
+    {% endblock extra_js %}
+  </body>
+</html>
+{%- endraw %}

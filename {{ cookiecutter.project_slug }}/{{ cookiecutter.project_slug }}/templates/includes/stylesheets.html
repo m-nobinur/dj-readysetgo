@@ -1,0 +1,8 @@
+{% raw %}{% load static %}
+{% load tailwind_tags compress %}
+
+{% compress css %}
+  <link href="{% static 'css/project.css' %}" rel="stylesheet" />
+{% endcompress %}
+{% tailwind_css %}
+{%- endraw %}

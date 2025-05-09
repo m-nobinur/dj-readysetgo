@@ -1,0 +1,29 @@
+# Config for Dependabot updates. See Documentation here:
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  # Update Python deps for the template (not the generated project)
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "project infrastructure"
+
+  # Update GitHub actions in workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "project infrastructure"
+
+  # Update npm packages
+  - package-ecosystem: "npm"
+    directory: "{{cookiecutter.project_slug}}/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"

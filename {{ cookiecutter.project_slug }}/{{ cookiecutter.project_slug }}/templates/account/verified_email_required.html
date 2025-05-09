@@ -1,0 +1,36 @@
+{% raw %}{% extends "layouts/base_layout.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block title %}
+  {% translate "Verify Your E-mail Address" %}
+{% endblock title %}
+{% block page %}
+  <div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col">
+      <div class="card w-full max-w-md shadow-2xl bg-base-100">
+        <div class="card-body">
+          <h2 class="card-title text-2xl justify-center text-primary">{% translate "Verify Your E-mail Address" %}</h2>
+          {% url 'account_email' as email_url %}
+          <div class="text-base-content">
+            <p class="my-2">
+              {% blocktranslate %}This part of the site requires us to verify that
+              you are who you claim to be. For this purpose, we require that you
+              verify ownership of your e-mail address.{% endblocktranslate %}
+            </p>
+            <p class="my-2">
+              {% blocktranslate %}We have sent an e-mail to you for
+              verification. Please click on the link inside this e-mail. Please
+              contact us if you do not receive it within a few minutes.{% endblocktranslate %}
+            </p>
+            <p class="mt-4">
+              {% blocktranslate %}<strong>Note:</strong> you can still <a href="{{ email_url }}" class="link link-primary">change your e-mail address</a>.{% endblocktranslate %}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock page %}
+{%- endraw %}

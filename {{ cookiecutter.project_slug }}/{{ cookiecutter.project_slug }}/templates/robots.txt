@@ -1,0 +1,5 @@
+{% raw %}User-agent: *
+Disallow: /admin/
+Allow: /
+Sitemap: {{ request.scheme }}://{{ request.get_host }}/sitemap.xml
+{%- endraw %}

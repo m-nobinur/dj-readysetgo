@@ -1,0 +1,42 @@
+{% raw %}{% load static %}
+
+<!-- Basic Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description"
+      content="{% block meta_description %}{% endblock meta_description %}" />
+<meta name="keywords"
+      content="{% block meta_keywords %}Pagerocket, {% endblock meta_keywords %}" />
+<meta name="author" content="m-nobinur" />
+<meta name="robots" content="index, follow" />
+<!-- Open Graph (Facebook/LinkedIn) -->
+<meta property="og:title"
+      content="{% block og_title %}{% endblock og_title %}" />
+<meta property="og:description"
+      content="{% block og_description %}{% endblock og_description %}" />
+<meta property="og:image"
+      content="{% block og_image %}{% endblock og_image %}" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:type" content="website" />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title"
+      content="{% block twitter_title %}{% endblock twitter_title %}" />
+<meta name="twitter:description"
+      content="{% block twitter_description %}{% endblock twitter_description %}" />
+<meta name="twitter:image"
+      content="{% block twitter_image %}{% endblock twitter_image %}" />
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}" />
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<link rel="icon"
+      href="{% static 'favicons/favicon.ico' %}"
+      type="image/x-icon" />
+<link rel="shortcut icon"
+      href="{% static 'favicons/favicon.ico' %}"
+      type="image/x-icon" />
+<link rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'favicons/apple-touch-icon.png' %}" />
+<link rel="manifest" href="{% static 'favicons/manifest.json' %}" />
+{%- endraw %}
