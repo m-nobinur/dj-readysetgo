@@ -1,10 +1,8 @@
 # {{ cookiecutter.project_name }}
 
-A fully-featured Django starter template with all batteries included. This template provides a robust foundation for modern web development, featuring pre-configured authentication, REST API support, admin enhancements, static/media file handling, Docker support, testing setup, and best-practice project structure.
+{{ cocookiecutter.project_description }}
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-
-License: Apache Software License 2.0
 
 ## Basic Commands
 
@@ -14,7 +12,9 @@ License: Apache Software License 2.0
 
 - To create a **superuser account**, use this command:
 
-      $ python manage.py createsuperuser
+```bash
+python manage.py createsuperuser
+```
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
@@ -22,25 +22,25 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 
 Running type checks with mypy:
 
-    $ mypy {{ cookiecutter.project_slug }}
+```bash
+mypy {{ cookiecutter.project_slug }}
+```
 
 ### Test coverage
 
 To run the tests, check your test coverage, and generate an HTML coverage report:
 
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
+```bash
+    coverage run -m pytest
+    coverage html
+    open htmlcov/index.html
+```
 
 #### Running tests with pytest
 
-    $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally.html#using-webpack-or-gulp).
-
-### Celery
+```bash
+pytest .
+```
 
 This app comes with Celery.
 
@@ -71,29 +71,29 @@ celery -A config.celery_app worker -B -l info
 
 In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use [Mailpit](https://github.com/axllent/mailpit) when generating the project a local SMTP server with a web interface will be available.
 
-1.  [Download the latest Mailpit release](https://github.com/axllent/mailpit/releases) for your OS.
+1. [Download the latest Mailpit release](https://github.com/axllent/mailpit/releases) for your OS.
 
-2.  Copy the binary file to the project root.
+2. Copy the binary file to the project root.
 
-3.  Make it executable:
+3. Make it executable:
 
-        $ chmod +x mailpit
+```bash
+chmod +x mailpit
+```
 
-4.  Spin up another terminal window and start it there:
+4. Spin up another terminal window and start it there:
 
-        ./mailpit
+```bash
+./mailpit
+```
 
-5.  Check out <http://127.0.0.1:8025/> to see how it goes.
+5. Check out <http://127.0.0.1:8025/> to see how it goes.
 
 Now you have your own mail server running locally, ready to receive whatever you send it.
 
 ### Sentry
 
-Sentry is an error logging aggregator service. You can sign up for a free account at <https://sentry.io/signup/?code=cookiecutter> or download and host it yourself.
+Sentry is an error logging aggregator service. You can sign up for a free account at <https://sentry.io/signup/> or download and host it yourself.
 The system is set up with reasonable defaults, including 404 logging and integration with the WSGI application.
 
 You must set the DSN url in production.
-
-## Deployment
-
-The following details how to deploy this application.

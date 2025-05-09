@@ -25,6 +25,7 @@ def check_mailpit():
     """Check if mailpit is installed and install it if not"""
     try:
         subprocess.run(["mailpit", "version"], check=True, capture_output=True)
+        print("Mailpit is already installed")
     except (subprocess.CalledProcessError, FileNotFoundError):
         print("Mailpit not found. Attempting to install mailpit first...")
         execute_command(
@@ -38,6 +39,7 @@ def check_redis():
     """Check if redis is installed and install it if not"""
     try:
         subprocess.run(["redis-server", "--version"], check=True, capture_output=True)
+        print("Redis is already installed")
     except (subprocess.CalledProcessError, FileNotFoundError):
         print("Redis not found. Attempting to install redis first...")
         execute_command(
