@@ -11,21 +11,16 @@
     <!-- Hero Section -->
     <div class="hero bg-base-200 py-16">
       <div class="hero-content text-center">
-        <div class="max-w-3xl">
-          {% lucide "app-window" size=40 class="mr-4" %}
+        <div class="max-w-3xl">{%- endraw %}
           <h1 class="text-5xl font-bold">{{ cookiecutter.project_name }}</h1>
           <p class="py-6 text-lg">
-            A fully-featured Django starter template with all batteries included. This template provides a robust foundation for modern web development, featuring pre-configured authentication, REST API support, admin enhancements, and more.
-          </p>
+            {{ cookiecutter.project_description }}
+          </p>{% raw %}
           <div class="flex flex-col sm:flex-row justify-center gap-2 mb-4">
-            <a href="https://github.com/cookiecutter/cookiecutter-django"
+            <a href="https://github.com/m-nobinur/dj-readysetgo"
                target="_blank"
                class="btn btn-primary">View on GitHub</a>
-            <a href="https://cookiecutter-django.readthedocs.io/en/latest/"
-               target="_blank"
-               class="btn btn-outline">Documentation</a>
           </div>
-          <div class="badge badge-outline">Apache Software License 2.0</div>
         </div>
       </div>
     </div>
@@ -154,9 +149,6 @@
         <p class="mb-6">Start building your next Django project with a solid foundation.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-2">
           <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up Now</a>
-          <a href="https://github.com/cookiecutter/cookiecutter-django"
-             target="_blank"
-             class="btn btn-outline">Fork on GitHub</a>
         </div>
       </div>
     </div>

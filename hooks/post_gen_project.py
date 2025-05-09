@@ -109,6 +109,10 @@ def setup_npm_packages():
     os.chdir(PROJECT_DIRECTORY)
     print("Tailwind CSS npm packages installed")
 
+def run_migrations():
+    """Run database migrations"""
+    execute_command("uv run python manage.py migrate", "Failed to run migrations")
+    print("Database migrations completed successfully")
 
 def main():
     with open(".python-version", "w") as f:
@@ -153,8 +157,10 @@ def main():
     print("  1. Enter your virtual environment:")
     print("       source .venv/bin/activate  # On Unix/Linux/Mac")
 
-    print("  2. Create a superuser: python manage.py createsuperuser")
-    print("  3. Run the development server: python manage.py runserver")
+    print("  2. Run the development server: uv run python manage.py runserver")
+    print("  3. Open another terminal/pane and run:")
+    print("       uv run python manage.py tailwind start")
+    print("  4. Open your browser and go to: http://localhost:8000")
     print("\nEnjoy building your project!")
 
 
