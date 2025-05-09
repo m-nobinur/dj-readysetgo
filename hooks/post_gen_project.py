@@ -74,6 +74,7 @@ def setup_python_environment():
             "Failed to install dependencies with uv",
         )
         print("Python environment set up with uv and dependencies installed")
+
     except (subprocess.CalledProcessError, FileNotFoundError):
         print("uv not found. Attempting to install uv first...")
         try:
@@ -109,10 +110,12 @@ def setup_npm_packages():
     os.chdir(PROJECT_DIRECTORY)
     print("Tailwind CSS npm packages installed")
 
+
 def run_migrations():
     """Run database migrations"""
     execute_command("uv run python manage.py migrate", "Failed to run migrations")
     print("Database migrations completed successfully")
+
 
 def main():
     with open(".python-version", "w") as f:
@@ -136,21 +139,21 @@ def main():
 
     # Set up Python environment based on user choices
     setup_python_environment()
+    print("Python environment set up successfully")
+
+    # Run database migrations
+    run_migrations()
+    print("Database migrations completed successfully")
 
     # Set up npm packages for Tailwind if selected
     setup_npm_packages()
 
+    check_mailpit()
+    check_redis()
+
     print("\n========================")
     print(" Project setup complete! ")
     print("========================")
-
-    print(
-        f"\nYour Django project '{Path(PROJECT_DIRECTORY).name}' has been created successfully!"
-    )
-    print("Checking for dependencies...")
-    print("Checking for mailpit and redis...")
-    check_mailpit()
-    check_redis()
 
     print("\nNext steps:")
 

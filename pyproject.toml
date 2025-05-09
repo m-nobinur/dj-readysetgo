@@ -23,7 +23,7 @@ classifiers = [
   "Natural Language :: English",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: {{ cookiecutter.python_version }}",
   "Programming Language :: Python :: Implementation :: CPython",
   "Topic :: Software Development",
 ]

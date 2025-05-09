@@ -6,5 +6,5 @@
   "author_email": "name@beenwise.com",
   "domain_name": "example.com",
   "version": "0.1.0",
-  "python_version": ""
+  "python_version": "3.11.6"
 }

@@ -52,7 +52,7 @@ cookiecutter gh:m-nobinur/dj-readysetgo
 | author_name | Your name | Your Name |
 | author_email | Your email address | you@example.com |
 | domain_name | Domain name for the project | example.com |
-| python_version | Python version to use | 3.12 |
+| python_version | Python version to use | {{ cookiecutter.python_version }} |
 
 ## Development
 
