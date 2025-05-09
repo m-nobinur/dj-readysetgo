@@ -21,7 +21,7 @@ A fully-featured Django starter template with all batteries included, featuring 
 
 ## Requirements
 
-- Python {{ cookiecutter.python_version }} or higher
+- Python 3.8 or higher
 - Cookiecutter 2.5.0 or higher
 
 ## Usage
