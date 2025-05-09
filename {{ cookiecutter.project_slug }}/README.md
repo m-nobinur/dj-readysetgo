@@ -1,6 +1,6 @@
 # {{ cookiecutter.project_name }}
 
-{{ cocookiecutter.project_description }}
+{{ cookiecutter.project_description }}
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
