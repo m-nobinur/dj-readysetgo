@@ -1,4 +1,4 @@
-# Djago Starter Template
+# Django Starter Template
 
 A fully-featured Django starter template with all batteries included, featuring pre-configured authentication, REST API support, admin enhancements, static/media file handling, testing setup, and best-practice project structure.
 
